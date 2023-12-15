@@ -3,15 +3,27 @@ import React, { useState } from 'react';
 import Day from './Day';
 
 const Calendar: React.FC = () => {
-  const [openedDays, setOpenedDays] = useState<number[]>([]);
+
+  const storedDays = localStorage.getItem('openedDays');
+  const initialOpenedDays = storedDays ? JSON.parse(storedDays) : [];
+
+  const [openedDays, setOpenedDays] = useState<number[]>(initialOpenedDays);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
+
   const handleDayClick = (day: number) => {
-    if (!openedDays.includes(day)) {
-      setOpenedDays([...openedDays, day]);
+    if (selectedDay === day) {
+      setSelectedDay(null);
+    } else {
+      if (!openedDays.includes(day)) {
+        const updatedDays = [...openedDays, day];
+        setOpenedDays(updatedDays);
+        localStorage.setItem('openedDays', JSON.stringify(updatedDays));
+      }
       setSelectedDay(day);
     }
   };
+  
 
   const handleClosePopup = () => {
     setSelectedDay(null);
