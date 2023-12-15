@@ -1,12 +1,14 @@
 import React from 'react';
 
 interface DayProps {
+  key: number;
   dayNumber: number;
   isOpen: boolean;
   onDayClick: () => void;
+  isAnimating: boolean;
 }
 
-const Day: React.FC<DayProps> = ({ dayNumber, isOpen, onDayClick }) => {
+const Day: React.FC<DayProps> = ({ dayNumber, isOpen, onDayClick, isAnimating }) => {
   return (
     <div
       onClick={onDayClick}
