@@ -2,20 +2,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # Qualification work - Fullstack Intern
 
-## **Introduction**
-
-A qualification work for a fullstack co-op student is a project or assignment that the candidate needs to complete to demonstrate their skills and knowledge in both front-end and back-end web development.
-
-The purpose of a qualification work is to assess the candidate’s abilities and determine if they are qualified for the fullstack co-operative position.
-
-It allows the can to showcase their understanding of web development principles and technologies, as well as their problem-solving and collaboration skills.
-
-## About ResterJeune.com
-
-**ResterJeune.com** is a health and wellness service designed for individuals over 50.
-
-It offers a personalized program focused on movement, nutrition, and overall well-being. The service aims to improve strength, vitality, and flexibility while addressing pain and self-confidence issues. It emphasizes physical activity and balanced nutrition as key health components and provides tools for managing chronic pain and diseases. The program includes various training categories, over 250 workout videos, a private members group, and personalized weekly planning. Julien HYARDET, a former professional athlete, is the personal coach available for guidance and motivation.
-
 ## The exercice
 
 This project involves creating an interactive Advent Calendar web application using Next.js, tailored for users interested in health and wellness, inspired by ResterJeune.com's focus. The calendar will feature daily wellness activities suitable for individuals over 50.
@@ -43,3 +29,8 @@ This project involves creating an interactive Advent Calendar web application us
 1. **GitHub Repository:** Fork a base repository you provide and push their final code to their fork. They can then submit a link to their repository.
 2. **Deployment Link:** Deploy your application using a service like Vercel or Netlify and provide me with the live URL.
 3. **Documented Code:** Include a README file documenting your approach, challenges faced, and how you solved them.
+
+  ## Major Probleme Encountered
+
+  1. I wanted to display videos with react youtube but the youtube link and its ID were random and therefore could not find any video, so I used Vimeo which worked directly, so I spent 1h30 debugging this problem .
+  2. I had big problems building in vercel, because of localStorage which had to be surrounded by a condition
