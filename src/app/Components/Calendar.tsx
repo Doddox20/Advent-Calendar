@@ -1,6 +1,8 @@
+// Calendar.tsx
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
+import YouTube from 'react-youtube';
 import Day from './Day';
 
 function createConfetti() {
@@ -32,6 +34,22 @@ const Calendar: React.FC = () => {
   const [openedDays, setOpenedDays] = useState<number[]>(initialOpenedDays);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
   const [isOpening, setIsOpening] = useState<boolean>(false);
+  const [videos, setVideos] = useState<Record<number, string | null>>({});
+
+  const videosByDay: Record<number, string> = {
+    1: 'uGSCvZqzRlY',
+    2: 'k0t_DKP67so',
+  };
+
+  const loadVideoForDay = (day: number, videosByDay: Record<number, string>) => {
+    const videoId = videosByDay[day];
+    if (videoId) {
+      const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+      setVideos({ ...videos, [day]: videoUrl });
+    } else {
+      setVideos({ ...videos, [day]: null });
+    }
+  };
 
   const handleDayClick = (day: number) => {
     if (selectedDay === day) {
@@ -49,21 +67,12 @@ const Calendar: React.FC = () => {
 
       setTimeout(() => {
         setIsOpening(false);
+        loadVideoForDay(day, videosByDay);
       }, 1500);
     }
   };
 
-  const handleClosePopup = () => {
-    setSelectedDay(null);
-  };
-
   const days: number[] = Array.from({ length: 25 }, (_, index) => index + 1);
-
-  useEffect(() => {
-    const storedDays = localStorage.getItem('openedDays');
-    const initialOpenedDays = storedDays ? JSON.parse(storedDays) : [];
-    setOpenedDays(initialOpenedDays);
-  }, []);
 
   return (
     <div className="flex flex-wrap justify-center">
@@ -74,20 +83,11 @@ const Calendar: React.FC = () => {
           isOpen={openedDays.includes(day)}
           onDayClick={() => handleDayClick(day)}
           isAnimating={isOpening && selectedDay === day}
+          videoUrl={videos[day]}
         />
       ))}
-
-      {selectedDay !== null && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-4 rounded">
-            <p>Contenu pour le jour {selectedDay}</p>
-            <button onClick={handleClosePopup}>Fermer</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
-
 
 export default Calendar;
