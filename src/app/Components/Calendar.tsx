@@ -32,6 +32,12 @@ const Calendar: React.FC = () => {
   const [isOpening, setIsOpening] = useState<boolean>(false);
   const [videos, setVideos] = useState<Record<number, string | null>>({});
 
+  const isDayPassed = (day: number): boolean => {
+    const today = new Date().getDate();
+    return day < today; 
+  };
+
+
   useEffect(() => {
     // Vérification côté client pour l'utilisation de localStorage
     if (typeof window !== 'undefined') {
@@ -81,6 +87,9 @@ const Calendar: React.FC = () => {
   }
 
   const handleDayClick = (day: number) => {
+    if (!isDayPassed(day)) {
+      return;
+    }
     if (selectedDay === day) {
       setSelectedDay(null);
     } else {
