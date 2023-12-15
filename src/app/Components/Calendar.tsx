@@ -34,7 +34,7 @@ const Calendar: React.FC = () => {
 
   const isDayPassed = (day: number): boolean => {
     const today = new Date().getDate();
-    return day < today; 
+    return day < today + 1; 
   };
 
 
