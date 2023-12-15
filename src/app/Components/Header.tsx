@@ -14,6 +14,7 @@ function Header() {
             <div className="flex items-center">
               <img
                 src="/img/bonnet.png"
+                alt="bonnet de noel"
                 className="w-12 h-12 mr-4"
               />
               {/* Bouton non fonctionel, a implementer */}
