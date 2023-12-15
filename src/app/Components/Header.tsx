@@ -16,6 +16,10 @@ function Header() {
                 src="/img/bonnet.png"
                 className="w-12 h-12 mr-4"
               />
+              {/* Bouton non fonctionel, a implementer */}
+              <button className="bg-white text-green-600 font-bold py-2 px-4 rounded hover:bg-green-200">
+            S'inscrire 
+          </button>
               
             </div>
           </div>

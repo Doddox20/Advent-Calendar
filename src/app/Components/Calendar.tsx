@@ -39,17 +39,41 @@ const Calendar: React.FC = () => {
   const videosByDay: Record<number, string> = {
     1: 'uGSCvZqzRlY',
     2: 'k0t_DKP67so',
+    3: '...',
+    4: '...',
+    5: '...',
+    6: '...',
+    7: '...',
+    8: '...',
+    9: '...',
+    10: '...',
+    11: '...',
+    12: '...',
+    13: '...',
+    14: '...',
+    15: '...',
+    16: '...',
+    17: '...',
+    18: '...',
+    19: '...',
+    20: '...',
+    21: '...',
+    22: '...',
+    23: '...',
+    24: '...',
+    25: '...',
+    
+
   };
 
-  const loadVideoForDay = (day: number, videosByDay: Record<number, string>) => {
+  function loadVideoForDay(day: number, videosByDay: Record<number, string>): string | null {
     const videoId = videosByDay[day];
     if (videoId) {
       const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-      setVideos({ ...videos, [day]: videoUrl });
-    } else {
-      setVideos({ ...videos, [day]: null });
+      return videoUrl;
     }
-  };
+    return null;
+  }
 
   const handleDayClick = (day: number) => {
     if (selectedDay === day) {
@@ -67,8 +91,12 @@ const Calendar: React.FC = () => {
 
       setTimeout(() => {
         setIsOpening(false);
-        loadVideoForDay(day, videosByDay);
-      }, 1500);
+
+        const videoUrl = loadVideoForDay(day, videosByDay);
+      if (videoUrl !== null) {
+        setVideos({ ...videos, [day]: videoUrl });
+      }
+    }, 1500);
     }
   };
 

@@ -27,7 +27,7 @@ const Day: React.FC<DayProps> = ({ dayNumber, isOpen, onDayClick, isAnimating, v
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-4 rounded">
             <YouTube videoId={videoUrl} opts={opts} />
-            <button onClick={() => setShowVideo(false)}>Fermer la vidéo</button>
+            <button onClick={() => setShowVideo(false)} className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Fermer la vidéo</button>
           </div>
         </div>
       );
