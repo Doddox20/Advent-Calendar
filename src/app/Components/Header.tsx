@@ -19,7 +19,7 @@ function Header() {
               />
               {/* Bouton non fonctionel, a implementer */}
               <button className="bg-white text-green-600 font-bold py-2 px-4 rounded hover:bg-green-200">
-            S'inscrire 
+            Inscription
           </button>
               
             </div>

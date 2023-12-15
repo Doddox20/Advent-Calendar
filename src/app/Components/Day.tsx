@@ -1,6 +1,5 @@
 // Day.tsx
 import React, { useState } from 'react';
-import YouTube from 'react-youtube';
 
 interface DayProps {
   dayNumber: number;
@@ -14,19 +13,17 @@ const Day: React.FC<DayProps> = ({ dayNumber, isOpen, onDayClick, isAnimating, v
   const [showVideo, setShowVideo] = useState<boolean>(false);
 
   const renderVideo = () => {
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: {
-        autoplay: 1,
-      },
-    };
-
     if (showVideo && videoUrl) {
       return (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="video-popup fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-4 rounded">
-            <YouTube videoId={videoUrl} opts={opts} />
+            <iframe
+              title={`Day ${dayNumber} Video`}
+              src={videoUrl}
+              width="640"
+              height="360"
+              allowFullScreen
+            ></iframe>
             <button onClick={() => setShowVideo(false)} className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Fermer la vidéo</button>
           </div>
         </div>

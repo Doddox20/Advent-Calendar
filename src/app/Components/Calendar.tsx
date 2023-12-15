@@ -2,7 +2,7 @@
 "use client"
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import YouTube from 'react-youtube';
+
 import Day from './Day';
 
 function createConfetti() {
@@ -37,31 +37,31 @@ const Calendar: React.FC = () => {
   const [videos, setVideos] = useState<Record<number, string | null>>({});
 
   const videosByDay: Record<number, string> = {
-    1: 'uGSCvZqzRlY',
-    2: 'k0t_DKP67so',
-    3: '...',
-    4: '...',
-    5: '...',
-    6: '...',
-    7: '...',
-    8: '...',
-    9: '...',
-    10: '...',
-    11: '...',
-    12: '...',
-    13: '...',
-    14: '...',
-    15: '...',
-    16: '...',
-    17: '...',
-    18: '...',
-    19: '...',
-    20: '...',
-    21: '...',
-    22: '...',
-    23: '...',
-    24: '...',
-    25: '...',
+    1: '327974083',
+    2: '135692260',
+    3: '199021759',
+    4: '400860591',
+    5: '378522818',
+    6: '641792223',
+    7: '400389553',
+    8: '400389553',
+    9: '400389553',
+    10: '400389553',
+    11: '400389553',
+    12: '400389553',
+    13: '400389553',
+    14: '400389553',
+    15: '400389553',
+    16: '400389553',
+    17: '400389553',
+    18: '400389553',
+    19: '400389553',
+    20: '400389553',
+    21: '400389553',
+    22: '400389553',
+    23: '400389553',
+    24: '400389553',
+    25: '400389553',
     
 
   };
@@ -69,7 +69,7 @@ const Calendar: React.FC = () => {
   function loadVideoForDay(day: number, videosByDay: Record<number, string>): string | null {
     const videoId = videosByDay[day];
     if (videoId) {
-      const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+      const videoUrl = `https://player.vimeo.com/video/${videoId}`;
       return videoUrl;
     }
     return null;
